@@ -1,11 +1,37 @@
 version: "3.9"
 
 services:
+  tmp_nest_graphql_app:
+    container_name: tmp_nest_graphql_app
+    build:
+      context: .
+      dockerfile: ./docker/frontend/Dockerfile
+    volumes:
+      - ./frontend:/frontend
+    tty: true
+    ports:
+      - 8080:8080
+    depends_on:
+      - tmp_nest_graphql_server
+    command: yarn dev
+
+  # tmp_nest_graphql_storybook:
+  #   container_name: tmp_nest_graphql_storybook
+  #   build: ./docker/next
+  #   volumes:
+  #     - ./next:/next
+  #   tty: true
+  #   ports:
+  #     - "6006:6006"
+  #   environment:
+  #     - NODE_ENV=development
+  #   # command: "yarn storybook:docker"
+
   tmp_nest_graphql_server:
     container_name: tmp_nest_graphql_server
     build:
       context: .
-      dockerfile: ./backend/Dockerfile
+      dockerfile: ./docker/backend/Dockerfile
     tty: true
     ports:
       - 3001:3000
@@ -17,7 +43,7 @@ services:
     container_name: tmp_nest_graphql_prisma
     build:
       context: .
-      dockerfile: ./backend/Dockerfile
+      dockerfile: ./docker/backend/Dockerfile
     tty: true
     ports:
       - 5555:5555
