@@ -1,0 +1,43 @@
+version: "3.9"
+
+services:
+  tmp_nest_graphql_server:
+    container_name: tmp_nest_graphql_server
+    build:
+      context: .
+      dockerfile: ./backend/Dockerfile
+    tty: true
+    ports:
+      - 3001:3000
+    volumes:
+      - ./backend:/backend
+    command: yarn start:dev
+
+  tmp_nest_graphql_prisma:
+    container_name: tmp_nest_graphql_prisma
+    build:
+      context: .
+      dockerfile: ./backend/Dockerfile
+    tty: true
+    ports:
+      - 5555:5555
+    volumes:
+      - ./backend:/backend
+    command: yarn start:prisma
+
+  tmp_nest_graphql_db:
+    container_name: tmp_nest_graphql_db
+    image: postgres:15-alpine
+    ports:
+      - 5432:5432
+    volumes:
+      - ./db/init.d:/docker-entrypoint-initdb.d
+      - ./db/pgdata:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_INITDB_ARGS: ${POSTGRES_INITDB_ARGS}
+      POSTGRES_DB: ${POSTGRES_DB}
+    hostname: postgres
+    restart: always
+    user: root
