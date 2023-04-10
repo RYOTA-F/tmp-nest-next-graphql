@@ -1,34 +1,36 @@
 version: "3.9"
 
 services:
-  tmp_nest_graphql_app:
-    container_name: tmp_nest_graphql_app
-    build:
-      context: .
-      dockerfile: ./docker/frontend/Dockerfile
-    volumes:
-      - ./frontend:/frontend
-    tty: true
-    ports:
-      - 8080:8080
-    depends_on:
-      - tmp_nest_graphql_server
-    command: yarn dev
-
-  # tmp_nest_graphql_storybook:
-  #   container_name: tmp_nest_graphql_storybook
-  #   build: ./docker/next
+  # tmp_nest_next_graphql_app:
+  #   container_name: tmp_nest_next_graphql_app
+  #   build:
+  #     context: .
+  #     dockerfile: ./docker/frontend/Dockerfile
   #   volumes:
-  #     - ./next:/next
+  #     - ./frontend:/frontend
   #   tty: true
   #   ports:
-  #     - "6006:6006"
+  #     - 8080:8080
+  #   depends_on:
+  #     - tmp_nest_next_graphql_server
+  #   command: yarn dev
+
+  # tmp_nest_next_graphql_storybook:
+  #   container_name: tmp_nest_next_graphql_storybook
+  #   build:
+  #     context: .
+  #     dockerfile: ./docker/frontend/Dockerfile
+  #   volumes:
+  #     - ./frontend:/frontend
+  #   tty: true
+  #   ports:
+  #     - 6006:6006
   #   environment:
   #     - NODE_ENV=development
-  #   # command: "yarn storybook:docker"
+  #   # command: yarn storybook
 
-  tmp_nest_graphql_server:
-    container_name: tmp_nest_graphql_server
+  tmp_nest_next_graphql_server:
+    container_name: tmp_nest_next_graphql_server
     build:
       context: .
       dockerfile: ./docker/backend/Dockerfile
@@ -36,11 +38,11 @@ services:
     ports:
       - 3001:3000
     volumes:
-      - ./backend:/backend
+      - ./packages/backend:/packages/backend
     command: yarn start:dev
 
-  tmp_nest_graphql_prisma:
-    container_name: tmp_nest_graphql_prisma
+  tmp_nest_next_graphql_prisma:
+    container_name: tmp_nest_next_graphql_prisma
     build:
       context: .
       dockerfile: ./docker/backend/Dockerfile
@@ -48,11 +50,11 @@ services:
     ports:
       - 5555:5555
     volumes:
-      - ./backend:/backend
+      - ./packages/backend:/packages/backend
     command: yarn start:prisma
 
-  tmp_nest_graphql_db:
-    container_name: tmp_nest_graphql_db
+  tmp_nest_next_graphql_db:
+    container_name: tmp_nest_next_graphql_db
     image: postgres:15-alpine
     ports:
       - 5432:5432
