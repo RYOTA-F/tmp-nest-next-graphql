@@ -1,8 +1,12 @@
-# Template: NestJS × PostgreSQL × Prisma × GraphQL
+# Template: Next.js × NestJS × PostgreSQL × Prisma × GraphQL × Docker
 
 ## About
 
-GraphQL API ベースのバックエンドテンプレートです。
+Docker ベースのアプリケーションテンプレートです。
+
+- フロントエンド: Next.js
+- バックエンド: NestJS
+- API: GraphQL
 
 ## Setup
 
@@ -21,7 +25,7 @@ cp .env.example .env
 1. `.env` file copy
 
 ```
-cp ./backend/.env.example ./backend/.env
+cp ./packages/backend/.env.example ./packages/backend/.env
 ```
 
 2. `.env` file edit
@@ -29,13 +33,13 @@ cp ./backend/.env.example ./backend/.env
 ### yarn install
 
 ```sh
-% docker-compose run --rm tmp_nest_graphql_server yarn install
+% docker-compose run --rm tmp_nest_next_graphql_server yarn install
 ```
 
 ### migration run
 
 ```sh
-% docker-compose run --rm tmp_nest_graphql_server npx prisma migrate dev --name init
+% docker-compose run --rm tmp_nest_next_graphql_server npx prisma migrate dev --name init
 ```
 
 ## Run
