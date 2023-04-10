@@ -86,6 +86,14 @@ http://localhost:5555/
 http://localhost:6006/
 ```
 
+## Test
+
+### Frontend Jest
+
+```sh
+% docker-compose run --rm tmp_nest_next_graphql_app yarn test
+```
+
 ## Versions
 
 - Node.js: v18.10.0
