@@ -15,7 +15,7 @@ Docker ベースのアプリケーションテンプレートです。
 1. `.env` file copy
 
 ```
-cp .env.example .env
+% cp .env.example .env
 ```
 
 2. `.env` file edit
@@ -25,12 +25,26 @@ cp .env.example .env
 1. `.env` file copy
 
 ```
-cp ./packages/backend/.env.example ./packages/backend/.env
+% cp ./packages/backend/.env.example ./packages/backend/.env
 ```
 
 2. `.env` file edit
 
+### Container Build
+
+```sh
+% docker-compose build
+```
+
 ### yarn install
+
+- Frontend
+
+```sh
+% docker-compose run --rm tmp_nest_next_graphql_app yarn install
+```
+
+- Backend
 
 ```sh
 % docker-compose run --rm tmp_nest_next_graphql_server yarn install
@@ -50,16 +64,26 @@ cp ./packages/backend/.env.example ./packages/backend/.env
 
 ## URL
 
+### App
+
+```
+http://localhost:3000/
+```
+
 ### GraphQL Playground
 
 ```
-http://localhost:3001/graphql
+http://localhost:3001/graphql/
 ```
 
 ### Prisma Studio
 
 ```
 http://localhost:5555/
+```
+
+```
+http://localhost:6006/
 ```
 
 ## Versions
