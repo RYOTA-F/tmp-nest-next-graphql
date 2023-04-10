@@ -15,19 +15,19 @@ services:
       - tmp_nest_next_graphql_server
     command: yarn dev
 
-  tmp_nest_next_graphql_storybook:
-    container_name: tmp_nest_next_graphql_storybook
-    build:
-      context: .
-      dockerfile: ./docker/frontend/Dockerfile
-    volumes:
-      - ./packages/frontend:/packages/frontend
-    tty: true
-    ports:
-      - 6006:6006
-    environment:
-      - NODE_ENV=development
-    command: yarn storybook
+  # tmp_nest_next_graphql_storybook:
+  #   container_name: tmp_nest_next_graphql_storybook
+  #   build:
+  #     context: .
+  #     dockerfile: ./docker/frontend/Dockerfile
+  #   volumes:
+  #     - ./packages/frontend:/packages/frontend
+  #   tty: true
+  #   ports:
+  #     - 6006:6006
+  #   environment:
+  #     - NODE_ENV=development
+  #   # command: yarn storybook
 
   tmp_nest_next_graphql_server:
     container_name: tmp_nest_next_graphql_server
