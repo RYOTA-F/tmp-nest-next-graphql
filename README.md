@@ -2,7 +2,11 @@
 
 ## About
 
-GraphQL API ベースのバックエンドテンプレートです。
+Docker ベースのアプリケーションテンプレートです。
+
+- フロントエンド: Next.js
+- バックエンド: NestJS
+- API: GraphQL
 
 ## Setup
 

@@ -2,6 +2,6 @@ FROM node:18.10.0-alpine
 
 RUN yarn install
 
-WORKDIR /frontend
+WORKDIR /packages/frontend
 
-EXPOSE 8080
+EXPOSE 3000
