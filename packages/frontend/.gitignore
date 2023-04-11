@@ -33,9 +33,3 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-<<<<<<< HEAD
-
-# Jest
-report
-=======
->>>>>>> parent of ed6dcca (Merge pull request #2 from RYOTA-F/feature/Storybook)
