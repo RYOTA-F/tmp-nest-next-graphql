@@ -32,8 +32,16 @@ cp ./packages/backend/.env.example ./packages/backend/.env
 
 ### yarn install
 
+- Backend
+
 ```sh
 % docker-compose run --rm tmp_nest_next_graphql_server yarn install
+```
+
+- Frontend
+
+```sh
+% docker-compose run --rm tmp_nest_next_graphql_app yarn install
 ```
 
 ### migration run
@@ -50,6 +58,12 @@ cp ./packages/backend/.env.example ./packages/backend/.env
 
 ## URL
 
+### App
+
+```
+http://localhost:3000/
+```
+
 ### GraphQL Playground
 
 ```
@@ -60,6 +74,14 @@ http://localhost:3001/graphql
 
 ```
 http://localhost:5555/
+```
+
+### Storybook
+
+### App
+
+```
+http://localhost:6006/
 ```
 
 ## Versions
