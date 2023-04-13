@@ -67,7 +67,7 @@ http://localhost:3000/
 ### GraphQL Playground
 
 ```
-http://localhost:3001/graphql
+http://localhost:3001/graphql/
 ```
 
 ### Prisma Studio
@@ -78,10 +78,30 @@ http://localhost:5555/
 
 ### Storybook
 
-### App
-
 ```
 http://localhost:6006/
+```
+
+## Lint
+
+- Backend
+
+```sh
+% docker-compose run --rm tmp_nest_next_graphql_server yarn lint
+```
+
+- Frontend
+
+```sh
+% docker-compose run --rm tmp_nest_next_graphql_app yarn lint
+```
+
+## Test
+
+- Frontend
+
+```sh
+% docker-compose run --rm tmp_nest_next_graphql_app yarn test
 ```
 
 ## Versions
