@@ -2,8 +2,8 @@ import { Module } from '@nestjs/common'
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo'
 import { GraphQLModule } from '@nestjs/graphql'
 import { join } from 'path'
-import { TaskModule } from './task/task.module';
-import { PrismaModule } from './prisma/prisma.module';
+import { TaskModule } from './task/task.module'
+import { PrismaModule } from './prisma/prisma.module'
 
 @Module({
   imports: [
