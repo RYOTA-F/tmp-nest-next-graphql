@@ -1,8 +1,8 @@
 version: "3.9"
 
 services:
-  tmp_nest_next_graphql_app:
-    container_name: tmp_nest_next_graphql_app
+  app:
+    container_name: app
     build:
       context: .
       dockerfile: ./docker/frontend/Dockerfile
@@ -12,11 +12,11 @@ services:
     ports:
       - 3000:3000
     depends_on:
-      - tmp_nest_next_graphql_server
+      - server
     command: yarn dev
 
-  tmp_nest_next_graphql_storybook:
-    container_name: tmp_nest_next_graphql_storybook
+  storybook:
+    container_name: storybook
     build:
       context: .
       dockerfile: ./docker/frontend/Dockerfile
@@ -29,8 +29,8 @@ services:
       - NODE_ENV=development
     command: yarn storybook
 
-  tmp_nest_next_graphql_server:
-    container_name: tmp_nest_next_graphql_server
+  server:
+    container_name: server
     build:
       context: .
       dockerfile: ./docker/backend/Dockerfile
@@ -41,8 +41,8 @@ services:
       - ./packages/backend:/packages/backend
     command: yarn start:dev
 
-  tmp_nest_next_graphql_prisma:
-    container_name: tmp_nest_next_graphql_prisma
+  prisma:
+    container_name: prisma
     build:
       context: .
       dockerfile: ./docker/backend/Dockerfile
@@ -53,8 +53,8 @@ services:
       - ./packages/backend:/packages/backend
     command: yarn start:prisma
 
-  tmp_nest_next_graphql_db:
-    container_name: tmp_nest_next_graphql_db
+  db:
+    container_name: db
     image: postgres:15-alpine
     ports:
       - 5432:5432

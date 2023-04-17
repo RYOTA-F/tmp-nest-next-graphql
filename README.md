@@ -45,19 +45,19 @@ cp ./packages/frontend/.env.example ./packages/frontend/.env
 - Backend
 
 ```sh
-% docker-compose run --rm tmp_nest_next_graphql_server yarn install
+% docker-compose run --rm server yarn install
 ```
 
 - Frontend
 
 ```sh
-% docker-compose run --rm tmp_nest_next_graphql_app yarn install
+% docker-compose run --rm app yarn install
 ```
 
 ### migration run
 
 ```sh
-% docker-compose run --rm tmp_nest_next_graphql_server npx prisma migrate dev --name init
+% docker-compose run --rm server npx prisma migrate dev --name init
 ```
 
 ## Run
@@ -97,13 +97,13 @@ http://localhost:6006/
 - Backend
 
 ```sh
-% docker-compose run --rm tmp_nest_next_graphql_server yarn lint
+% docker-compose run --rm server yarn lint
 ```
 
 - Frontend
 
 ```sh
-% docker-compose run --rm tmp_nest_next_graphql_app yarn lint
+% docker-compose run --rm app yarn lint
 ```
 
 ## Test
@@ -111,7 +111,7 @@ http://localhost:6006/
 - Frontend
 
 ```sh
-% docker-compose run --rm tmp_nest_next_graphql_app yarn test
+% docker-compose run --rm app yarn test
 ```
 
 ## Versions
