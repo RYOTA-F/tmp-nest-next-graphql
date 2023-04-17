@@ -8,7 +8,7 @@ import {
 import '@/styles/globals.css'
 
 const httpLink = new HttpLink({
-  uri: 'http://localhost:3001/graphql',
+  uri: `${process.env.NEXT_PUBLIC_SERVER_URL}/graphql`,
 })
 
 const client = new ApolloClient({

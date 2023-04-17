@@ -20,12 +20,22 @@ cp .env.example .env
 
 2. `.env` file edit
 
-### Prisma env
+### Backend env
 
 1. `.env` file copy
 
 ```
 cp ./packages/backend/.env.example ./packages/backend/.env
+```
+
+2. `.env` file edit
+
+### Frontend env
+
+1. `.env` file copy
+
+```
+cp ./packages/frontend/.env.example ./packages/frontend/.env
 ```
 
 2. `.env` file edit
