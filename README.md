@@ -119,3 +119,4 @@ http://localhost:6006/
 - Node.js: v18.10.0
 - NestJS: v9.3.0
 - Prisma: v4.12.0
+- Next.js: v13.0.6
