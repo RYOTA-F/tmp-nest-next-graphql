@@ -3,6 +3,7 @@ import { Task } from '@prisma/client'
 import { TaskService } from './task.service'
 import { Task as TaskModel } from './models/task.model'
 import { CreateTaskInput } from './dto/createTask.input'
+
 @Resolver()
 export class TaskResolver {
   constructor(private readonly taskService: TaskService) {}

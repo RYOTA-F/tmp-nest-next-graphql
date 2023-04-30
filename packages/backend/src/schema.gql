@@ -2,6 +2,87 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type ConnpassEventSeries {
+  """グループ: ID"""
+  id: Int!
+
+  """グループ: 名称"""
+  title: String!
+
+  """グループ: URL"""
+  url: String!
+}
+
+type ConnpassEvent {
+  """ID"""
+  id: Int!
+
+  """イベント名"""
+  title: String!
+
+  """キャッチコピー"""
+  catchCopy: String!
+
+  """イベント概要"""
+  description: String!
+
+  """URL"""
+  eventUrl: String!
+
+  """開始日時"""
+  startedAt: DateTime!
+
+  """終了日時"""
+  endedAt: DateTime!
+
+  """定員"""
+  limit: Int
+
+  """Twitterハッシュタグ"""
+  hashTag: String!
+
+  """参加タイプ"""
+  eventType: String!
+
+  """参加者数"""
+  accepted: Int!
+
+  """補欠者数"""
+  waiting: Int!
+
+  """更新日時"""
+  updatedAt: DateTime!
+
+  """管理者: ID"""
+  ownerId: Int!
+
+  """管理者: ニックネーム"""
+  ownerNickname: String!
+
+  """管理者: 表示名"""
+  ownerDisplayName: String!
+
+  """会場: 名称"""
+  place: String
+
+  """会場: 住所"""
+  address: String
+
+  """会場: 緯度"""
+  lat: String
+
+  """会場: 経度"""
+  lon: String
+
+  """グループ"""
+  series: ConnpassEventSeries
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
 type Task {
   id: Int!
   name: String!
@@ -12,12 +93,8 @@ type Task {
   updatedAt: DateTime!
 }
 
-"""
-A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
-"""
-scalar DateTime
-
 type Query {
+  getConnpassEventById(eventId: Int): ConnpassEvent!
   getTasks: [Task]!
 }
 
