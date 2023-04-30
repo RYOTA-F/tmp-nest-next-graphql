@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common'
 import { CONNPASS_API_ENDPOINT } from './connpass-api.const'
 import { ConnpassEventsResponse } from './connpass-api.types'
-import { ClientError } from 'src/errors/client.error'
+import { ClientError } from '../../errors/client.error'
 
 @Injectable()
 export class ConnpassAPIClient {

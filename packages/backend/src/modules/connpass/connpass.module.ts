@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common'
 import { ConnpassResolver } from './connpass.resolver'
 import { ConnpassService } from './connpass.service'
 import { ConnpassUsecase } from './usecases/connpass.usecase'
-import { ConnpassAPIClient } from 'src/clients/connpass/connpass-api.client'
+import { ConnpassAPIClient } from '../../clients/connpass/connpass-api.client'
 
 @Module({
   providers: [
