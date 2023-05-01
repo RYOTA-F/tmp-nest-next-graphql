@@ -2,6 +2,8 @@ import { INestApplication } from '@nestjs/common'
 import { Test, TestingModule } from '@nestjs/testing'
 import * as request from 'supertest'
 import { AppModule } from '../src/app.module'
+import { BadRequestException } from '../src/errors/bad-request-exception.error'
+import { BAD_REQUEST_EXCEPTION_MESSAGE } from '../src/errors/const/bad-request-exception.const'
 
 describe('connpass', () => {
   let app: INestApplication
@@ -21,18 +23,18 @@ describe('connpass', () => {
   })
 
   describe('getConnpassEventById', () => {
-    test('データが取得できる', async () => {
-      const query = `
-        query ($eventId: Int) {
-          getConnpassEventById(eventId: $eventId) {
-            id
-            title
-            catchCopy
-          }
+    const query = `
+      query ($eventId: Int) {
+        getConnpassEventById(eventId: $eventId) {
+          id
+          title
+          catchCopy
         }
-      `
-      const variables = { eventId: 281130 }
+      }
+    `
+    const variables = { eventId: 281130 }
 
+    test('正常系: データが取得できる', async () => {
       const res = await request(app.getHttpServer())
         .post('/graphql')
         .send({ query, variables })
@@ -45,6 +47,20 @@ describe('connpass', () => {
       expect(getConnpassEventById.catchCopy).toEqual(
         '〜 AI時代にどう生き残っていくか 〜',
       )
+    })
+
+    test('異常系: eventId が指定されていない場合 BadRequestException がthrowされる', async () => {
+      const subject = async () =>
+        request(app.getHttpServer()).post('/graphql').send({ query })
+
+      try {
+        await subject()
+      } catch (err) {
+        expect(err).toBeInstanceOf(BadRequestException)
+        expect(err.message).toEqual(
+          BAD_REQUEST_EXCEPTION_MESSAGE.EVENT_ID_IS_NOT_SPECIFIED,
+        )
+      }
     })
   })
 })
