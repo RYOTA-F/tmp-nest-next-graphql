@@ -2,8 +2,9 @@ import { Module } from '@nestjs/common'
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo'
 import { GraphQLModule } from '@nestjs/graphql'
 import { join } from 'path'
-import { TaskModule } from './task/task.module'
-import { PrismaModule } from './prisma/prisma.module'
+import { ConnpassModule } from './modules/connpass/connpass.module'
+import { TaskModule } from './modules/task/task.module'
+import { PrismaModule } from './modules/prisma/prisma.module'
 
 @Module({
   imports: [
@@ -12,6 +13,7 @@ import { PrismaModule } from './prisma/prisma.module'
       playground: true,
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
     }),
+    ConnpassModule,
     TaskModule,
     PrismaModule,
   ],
