@@ -8,7 +8,8 @@ export class ConnpassUsecase {
   constructor(private readonly connpassApiClient: ConnpassAPIClient) {}
 
   async getEventById(eventId: number): Promise<ConnpassEventEntity> {
-    const res = await this.connpassApiClient.fetchEventById(eventId)
+    const query = `?event_id=${eventId}`
+    const res = await this.connpassApiClient.fetchEvent(query)
 
     if (!res.events[0]) {
       throw new DataNotFoundError(`ID: ${eventId} のイベントが見つかりません`)

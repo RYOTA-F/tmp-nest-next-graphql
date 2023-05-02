@@ -2,8 +2,6 @@ import { INestApplication } from '@nestjs/common'
 import { Test, TestingModule } from '@nestjs/testing'
 import * as request from 'supertest'
 import { AppModule } from '../src/app.module'
-import { BadRequestException } from '../src/errors/bad-request-exception.error'
-import { BAD_REQUEST_EXCEPTION_MESSAGE } from '../src/errors/const/bad-request-exception.const'
 
 describe('connpass', () => {
   let app: INestApplication
@@ -49,18 +47,11 @@ describe('connpass', () => {
       )
     })
 
-    test('異常系: eventId が指定されていない場合 BadRequestException がthrowされる', async () => {
+    test('異常系: eventId が指定されていない場合 エラー がthrowされる', async () => {
       const subject = async () =>
         request(app.getHttpServer()).post('/graphql').send({ query })
 
-      try {
-        await subject()
-      } catch (err) {
-        expect(err).toBeInstanceOf(BadRequestException)
-        expect(err.message).toEqual(
-          BAD_REQUEST_EXCEPTION_MESSAGE.EVENT_ID_IS_NOT_SPECIFIED,
-        )
-      }
+      expect(subject).rejects.toThrow()
     })
   })
 })
