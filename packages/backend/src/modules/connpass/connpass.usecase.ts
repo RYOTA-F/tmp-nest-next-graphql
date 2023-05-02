@@ -17,28 +17,30 @@ export class ConnpassUsecase {
       )
     }
 
+    const targetEvent = res.events[0]
+
     return new ConnpassEventEntity(
-      res.events[0].event_id,
-      res.events[0].title,
-      res.events[0].catch,
-      res.events[0].description,
-      res.events[0].event_url,
-      new Date(res.events[0].started_at),
-      new Date(res.events[0].ended_at),
-      res.events[0].limit,
-      res.events[0].hash_tag,
-      res.events[0].event_type,
-      res.events[0].accepted,
-      res.events[0].waiting,
-      new Date(res.events[0].updated_at),
-      res.events[0].owner_id,
-      res.events[0].owner_nickname,
-      res.events[0].owner_display_name,
-      res.events[0].place,
-      res.events[0].address,
-      res.events[0].lat,
-      res.events[0].lon,
-      res.events[0].series,
+      targetEvent.event_id,
+      targetEvent.title,
+      targetEvent.catch,
+      targetEvent.description,
+      targetEvent.event_url,
+      new Date(targetEvent.started_at),
+      new Date(targetEvent.ended_at),
+      targetEvent.limit,
+      targetEvent.hash_tag,
+      targetEvent.event_type,
+      targetEvent.accepted,
+      targetEvent.waiting,
+      new Date(targetEvent.updated_at),
+      targetEvent.owner_id,
+      targetEvent.owner_nickname,
+      targetEvent.owner_display_name,
+      targetEvent.place,
+      targetEvent.address,
+      targetEvent.lat,
+      targetEvent.lon,
+      targetEvent.series,
     )
   }
 }
