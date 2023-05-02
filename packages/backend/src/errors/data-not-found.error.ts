@@ -1,7 +1,8 @@
-export class DataNotFoundError extends Error {
-  constructor(message: string) {
-    super(message)
-  }
+import { ApolloError } from 'apollo-server-errors'
 
-  name = 'DataNotFoundError'
+export class DataNotFoundException extends ApolloError {
+  constructor(message: string) {
+    super(message, 'DATE_NOT_FOUND')
+    Object.defineProperty(this, 'name', { value: 'DataNotFoundException' })
+  }
 }

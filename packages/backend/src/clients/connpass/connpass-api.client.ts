@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common'
 import { CONNPASS_API_ENDPOINT } from './connpass-api.const'
 import { ConnpassEventsResponse } from './connpass-api.types'
-import { ClientError } from '../../errors/client.error'
+import { ClientException } from '../../errors/client.error'
 
 @Injectable()
 export class ConnpassAPIClient {
@@ -11,7 +11,7 @@ export class ConnpassAPIClient {
     return await fetch(endPoint)
       .then((response) => response.json())
       .catch((error) => {
-        throw new ClientError(error)
+        throw new ClientException(error)
       })
   }
 }
