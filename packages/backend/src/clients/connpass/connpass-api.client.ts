@@ -5,7 +5,7 @@ import { ClientException } from '../../errors/client.error'
 
 @Injectable()
 export class ConnpassAPIClient {
-  async fetchEvent(query: string): Promise<ConnpassEventsResponse> {
+  async fetchEvent(query?: string): Promise<ConnpassEventsResponse> {
     const endPoint = `${CONNPASS_API_ENDPOINT}${query}`
 
     return await fetch(endPoint)
