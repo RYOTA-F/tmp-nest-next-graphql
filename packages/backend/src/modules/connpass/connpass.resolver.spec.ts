@@ -1,10 +1,10 @@
 import { Test, TestingModule } from '@nestjs/testing'
+import { ConnpassUsecase } from './connpass.usecase'
 import { ConnpassResolver } from './connpass.resolver'
 import { ConnpassService } from './connpass.service'
-import { ConnpassEvent } from '../../gqltypes/connpass-event.gqltype'
-import { ConnpassUsecase } from './usecases/connpass.usecase'
 import { ConnpassAPIClient } from '../../clients/connpass/connpass-api.client'
 import { ConnpassEventEntity } from '../../entities/connpass-event.entity'
+import { ConnpassEvent } from '../../gqltypes/connpass-event.gqltype'
 import { ConnpassEventEntityFactory } from '../../../test/factories/connpass/connpass-event-entity.factory'
 import { ConnpassEventGqltypeFactory } from '../../../test/factories/connpass/connpass-event-gqltype.factory'
 
@@ -63,6 +63,13 @@ describe('ConnpassResolver', () => {
   })
 
   describe('getConnpassEventById', () => {
+    test('正常系: getEventById が呼ばれる', async () => {
+      await connpassResolver.getConnpassEventById(eventIdMock)
+
+      expect(connpassService.getEventById).toHaveBeenCalledTimes(1)
+      expect(connpassService.getEventById).toHaveBeenCalledWith(eventIdMock)
+    })
+
     test('正常系: ConnpassEvent が返る', async () => {
       const result = await connpassResolver.getConnpassEventById(eventIdMock)
 

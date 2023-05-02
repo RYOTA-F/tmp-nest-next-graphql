@@ -18,7 +18,7 @@ export interface ConnpassEvent {
   event_type: string
   accepted: number
   waiting: number
-  updated_at: string
+  updated_at: Date
   owner_id: number
   owner_nickname: string
   owner_display_name: string

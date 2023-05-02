@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common'
-import { ConnpassUsecase } from './usecases/connpass.usecase'
+import { ConnpassUsecase } from './connpass.usecase'
 import { ConnpassEventEntity } from '../../entities/connpass-event.entity'
 
 @Injectable()

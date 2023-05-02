@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common'
-import { ConnpassAPIClient } from '../../../clients/connpass/connpass-api.client'
-import { ConnpassEventEntity } from '../../../entities/connpass-event.entity'
-import { DataNotFoundException } from '../../../errors/data-not-found.error'
+import { ConnpassAPIClient } from '../../clients/connpass/connpass-api.client'
+import { ConnpassEventEntity } from '../../entities/connpass-event.entity'
+import { DataNotFoundException } from '../../errors/data-not-found.error'
 
 @Injectable()
 export class ConnpassUsecase {
@@ -11,7 +11,7 @@ export class ConnpassUsecase {
     const query = `?event_id=${eventId}`
     const res = await this.connpassApiClient.fetchEvent(query)
 
-    if (!res.events[0]) {
+    if (!res!.events[0]) {
       throw new DataNotFoundException(
         `ID: ${eventId} のイベントが見つかりません`,
       )

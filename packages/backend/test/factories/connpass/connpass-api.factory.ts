@@ -1,7 +1,10 @@
 import { Factory } from 'fishery'
-import { ConnpassEvent } from '../../../src/clients/connpass/connpass-api.types'
+import {
+  ConnpassEventsResponse,
+  ConnpassEvent,
+} from '../../../src/clients/connpass/connpass-api.types'
 
-export const ConnpassApiFactory = Factory.define<ConnpassEvent>(
+export const ConnpassEventResponseFactory = Factory.define<ConnpassEvent>(
   ({ sequence }) =>
     ({
       event_id: sequence,
@@ -16,7 +19,7 @@ export const ConnpassApiFactory = Factory.define<ConnpassEvent>(
       event_type: `event_type-${sequence}`,
       accepted: sequence,
       waiting: sequence,
-      updated_at: `updated_at-${sequence}`,
+      updated_at: new Date(),
       owner_id: sequence,
       owner_nickname: `owner_nickname-${sequence}`,
       owner_display_name: `owner_display_name-${sequence}`,
@@ -31,3 +34,14 @@ export const ConnpassApiFactory = Factory.define<ConnpassEvent>(
       },
     } as ConnpassEvent),
 )
+
+export const ConnpassEventsResponseFactory =
+  Factory.define<ConnpassEventsResponse>(
+    ({ sequence }) =>
+      ({
+        results_start: sequence,
+        results_returned: sequence * 100,
+        results_available: sequence,
+        events: [ConnpassEventResponseFactory.build()],
+      } as ConnpassEventsResponse),
+  )
