@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common'
-import { ConnpassAPIClient } from '../../clients/connpass/connpass-api.client'
-import { ConnpassEventEntity } from '../../entities/connpass-event.entity'
-import { DataNotFoundException } from '../../errors/data-not-found.error'
+import { ConnpassAPIClient } from '@clients/connpass/connpass-api.client'
+import { ConnpassEventEntity } from '@entities/connpass-event.entity'
+import { DataNotFoundException } from '@errors/data-not-found.error'
 
 @Injectable()
 export class ConnpassUsecase {

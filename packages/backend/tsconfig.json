@@ -9,13 +9,22 @@
     "target": "es2017",
     "sourceMap": true,
     "outDir": "./dist",
-    "baseUrl": "./",
     "incremental": true,
     "skipLibCheck": true,
     "strictNullChecks": false,
     "noImplicitAny": false,
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
-    "noFallthroughCasesInSwitch": false
+    "noFallthroughCasesInSwitch": false,
+    "baseUrl": "./",
+    "paths": {
+      "@src/*": ["src/*"],
+      "@clients/*": ["src/clients/*"],
+      "@entities/*": ["src/entities/*"],
+      "@errors/*": ["src/errors/*"],
+      "@gqltypes/*": ["src/gqltypes/*"],
+      "@modules/*": ["src/modules/*"],
+      "@factories/*": ["test/factories/*"]
+    }
   }
 }
