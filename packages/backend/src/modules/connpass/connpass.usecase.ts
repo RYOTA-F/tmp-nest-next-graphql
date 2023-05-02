@@ -11,7 +11,7 @@ export class ConnpassUsecase {
     const query = `?event_id=${eventId}`
     const res = await this.connpassApiClient.fetchEvent(query)
 
-    if (!res!.events[0]) {
+    if (!res.events[0]) {
       throw new DataNotFoundException(
         `ID: ${eventId} のイベントが見つかりません`,
       )
