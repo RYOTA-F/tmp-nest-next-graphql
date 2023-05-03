@@ -1,10 +1,10 @@
 import { Test, TestingModule } from '@nestjs/testing'
 import { ConnpassAPIClient } from '@clients/connpass/connpass-api.client'
 import { ConnpassEventsResponse } from '@clients/connpass/connpass-api.types'
-import { ConnpassEventEntity } from '@entities/connpass-event.entity'
 import { ConnpassEventEntityFactory } from '@factories/connpass/connpass-event-entity.factory'
 import { ConnpassEventsResponseFactory } from '@factories/connpass/connpass-api.factory'
 import { ConnpassUsecase } from './connpass.usecase'
+import { ConnpassEventEntity } from './entities/connpass-event.entity'
 
 describe('ConnpassUsecase', () => {
   let connpassUsecase: ConnpassUsecase

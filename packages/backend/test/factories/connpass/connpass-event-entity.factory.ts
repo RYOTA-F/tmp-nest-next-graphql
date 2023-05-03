@@ -1,5 +1,5 @@
 import { Factory } from 'fishery'
-import { ConnpassEventEntity } from '../../../src/entities/connpass-event.entity'
+import { ConnpassEventEntity } from '@modules/connpass/entities/connpass-event.entity'
 
 export const ConnpassEventEntityFactory = Factory.define<ConnpassEventEntity>(
   ({ sequence }) =>

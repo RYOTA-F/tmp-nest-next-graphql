@@ -1,4 +1,4 @@
-import { ConnpassEventSeries } from 'src/clients/connpass/connpass-api.types'
+import { ConnpassEventSeries } from '@clients/connpass/connpass-api.types'
 
 export class ConnpassEventEntity {
   constructor(

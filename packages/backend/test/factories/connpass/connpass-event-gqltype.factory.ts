@@ -1,5 +1,5 @@
 import { Factory } from 'fishery'
-import { ConnpassEvent } from '../../../src/gqltypes/connpass-event.gqltype'
+import { ConnpassEvent } from '@modules/connpass/gqltypes/connpass-event.gqltype'
 
 export const ConnpassEventGqltypeFactory = Factory.define<ConnpassEvent>(
   ({ sequence }) =>

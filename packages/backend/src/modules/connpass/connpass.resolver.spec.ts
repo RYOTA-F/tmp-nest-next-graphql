@@ -1,12 +1,12 @@
 import { Test, TestingModule } from '@nestjs/testing'
 import { ConnpassAPIClient } from '@clients/connpass/connpass-api.client'
-import { ConnpassEventEntity } from '@entities/connpass-event.entity'
 import { ConnpassEventEntityFactory } from '@factories/connpass/connpass-event-entity.factory'
 import { ConnpassEventGqltypeFactory } from '@factories/connpass/connpass-event-gqltype.factory'
-import { ConnpassEvent } from '@gqltypes/connpass-event.gqltype'
-import { ConnpassUsecase } from './connpass.usecase'
 import { ConnpassResolver } from './connpass.resolver'
 import { ConnpassService } from './connpass.service'
+import { ConnpassEventEntity } from './entities/connpass-event.entity'
+import { ConnpassUsecase } from './connpass.usecase'
+import { ConnpassEvent } from './gqltypes/connpass-event.gqltype'
 
 describe('ConnpassResolver', () => {
   let connpassEventEntity: ConnpassEventEntity

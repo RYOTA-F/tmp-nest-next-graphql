@@ -8,7 +8,6 @@
       "@clients/*": ["src/clients/*"],
       "@entities/*": ["src/entities/*"],
       "@errors/*": ["src/errors/*"],
-      "@gqltypes/*": ["src/gqltypes/*"],
       "@modules/*": ["src/modules/*"],
       "@factories/*": ["test/factories/*"]
     }

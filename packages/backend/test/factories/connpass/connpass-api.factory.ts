@@ -2,7 +2,7 @@ import { Factory } from 'fishery'
 import {
   ConnpassEventsResponse,
   ConnpassEvent,
-} from '../../../src/clients/connpass/connpass-api.types'
+} from '@clients/connpass/connpass-api.types'
 
 export const ConnpassEventResponseFactory = Factory.define<ConnpassEvent>(
   ({ sequence }) =>

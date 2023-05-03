@@ -1,8 +1,8 @@
 import { Resolver, Query, Args, Int } from '@nestjs/graphql'
-import { ConnpassEvent } from '@gqltypes/connpass-event.gqltype'
 import { BadRequestException } from '@errors/bad-request.error'
 import { BAD_REQUEST_EXCEPTION_MESSAGE } from '@errors/const/bad-request-exception.const'
 import { ConnpassService } from './connpass.service'
+import { ConnpassEvent } from './gqltypes/connpass-event.gqltype'
 
 @Resolver(() => ConnpassEvent)
 export class ConnpassResolver {
